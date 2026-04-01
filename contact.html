@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Arumed | Contact Us - Reach Our Team</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F6F4EF;
+      color: #19140B;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --primary-dark: #19140B;
+      --primary-red: #AD443B;
+      --primary-red-light: #BC8E80;
+      --blue-dark: #536792;
+      --blue-medium: #5488BE;
+      --blue-light: #64A4DF;
+      --gray-dark: #4D4846;
+      --gray-medium: #8D8F8E;
+      --gray-light: #B2B3AA;
+      --warm-taupe: #A5795B;
+      --warm-beige: #B6AF96;
+      --warm-pink: #CDB2B3;
+      --cream: #DBC6AE;
+      --bg-light: #F6F4EF;
+      --bg-mint: #E0F7F2;
+      --white: #FFFFFF;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .logo {
+      flex-shrink: 0;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--blue-medium) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .logo p {
+      font-size: 0.7rem;
+      color: var(--primary-red);
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+
+    /* Desktop Navigation */
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Hamburger Menu Button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--primary-red);
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.3s ease;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .menu-toggle:hover {
+      background: var(--bg-light);
+      transform: scale(1.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo h1 {
+        font-size: 1.4rem;
+      }
+
+      .logo p {
+        font-size: 0.65rem;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--gray-dark);
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 1rem;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary-red);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-red);
+    }
+
+    /* Hamburger Menu Button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--primary-red);
+      cursor: pointer;
+      z-index: 1001;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Mobile Navigation Overlay */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--white);
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+      z-index: 1002;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 80px 30px 40px;
+      overflow-y: auto;
+    }
+
+    .nav-overlay.active {
+      right: 0;
+    }
+
+    .nav-overlay .nav-links-mobile {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .nav-overlay .nav-links-mobile li {
+      opacity: 0;
+      transform: translateX(30px);
+      animation: slideIn 0.4s ease forwards;
+    }
+
+    .nav-overlay .nav-links-mobile li:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .nav-overlay .nav-links-mobile li:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .nav-overlay .nav-links-mobile li:nth-child(3) {
+      animation-delay: 0.15s;
+    }
+
+    .nav-overlay .nav-links-mobile li:nth-child(4) {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .nav-overlay .nav-links-mobile a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+      transition: all 0.3s ease;
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-overlay .nav-links-mobile a:hover,
+    .nav-overlay .nav-links-mobile a.active {
+      color: var(--primary-red);
+      padding-left: 15px;
+    }
+
+    /* Close Button */
+    .close-menu {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--gray-dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-menu:hover {
+      background: var(--bg-light);
+      color: var(--primary-red);
+      transform: rotate(90deg);
+    }
+
+    /* Backdrop */
+    .menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1001;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .menu-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(135deg, var(--bg-mint) 0%, var(--bg-light) 100%);
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(100, 164, 223, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: var(--gray-medium);
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      padding: 80px 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+    }
+
+    /* Contact Info Cards */
+    .contact-info {
+      animation: fadeInLeft 0.8s ease;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .info-card {
+      background: var(--white);
+      padding: 35px;
+      border-radius: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--bg-mint);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .info-icon i {
+      font-size: 1.5rem;
+      color: var(--primary-red);
+    }
+
+    .info-header h3 {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+    }
+
+    .info-card p {
+      color: var(--gray-medium);
+      margin-bottom: 8px;
+      padding-left: 65px;
+    }
+
+    .info-card a {
+      color: var(--gray-medium);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .info-card a:hover {
+      color: var(--primary-red);
+    }
+
+    .business-hours {
+      padding-left: 65px;
+      margin-top: 15px;
+    }
+
+    .business-hours p {
+      padding-left: 0;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Map Section */
+    .map-container {
+      margin-top: 30px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: var(--white);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      animation: fadeInRight 0.8s ease;
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .contact-form h2 {
+      font-size: 1.8rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .contact-form p {
+      color: var(--gray-medium);
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid var(--gray-light);
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: var(--white);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 3px rgba(173, 68, 59, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-light) 100%);
+      color: white;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(173, 68, 59, 0.3);
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--gray-medium);
+      max-width: 700px;
+      margin: 0 auto 60px;
+      font-size: 1.1rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+    }
+
+    .faq-item {
+      background: var(--bg-light);
+      padding: 25px;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .faq-question h3 {
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .faq-question i {
+      color: var(--primary-red);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--gray-medium);
+      margin-top: 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+      margin-top: 15px;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: var(--gray-light);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: var(--gray-light);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--primary-red);
+      transform: translateX(5px);
+    }
+
+    .footer-col .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .footer-col .social-links a {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 35px;
+    }
+
+    .footer-col .social-links a:hover {
+      background: var(--primary-red);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 968px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .info-card p,
+      .business-hours {
+        padding-left: 0;
+      }
+
+      .info-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .info-card {
+        text-align: center;
+      }
+
+      .business-hours p {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <h1>New Arumed</h1>
+          <p>PHARMACEUTICAL EXCELLENCE</p>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="contact.html" class="active">Contact Us</a></li>
+        </ul>
+
+        <!-- Hamburger Menu Button (only visible on mobile) -->
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="nav-overlay" id="navOverlay">
+    <button class="close-menu" id="closeMenu">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul class="nav-links-mobile">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html">Our Products</a></li>
+      <li><a href="contact.html" class="active">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Backdrop -->
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Get In Touch</h1>
+      <p>We're here to help with all your pharmaceutical and medical equipment needs</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="info-header">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h3>Visit Our Office</h3>
+            </div>
+            <p>New Arumed (Pvt) Ltd<br>No. 123, Galle Road,<br>Colombo 03, Sri Lanka</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-header">
+              <div class="info-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h3>Call Us</h3>
+            </div>
+            <p><strong>General Inquiries:</strong> <a href="tel:+94112345678">+94 11 2 345 678</a></p>
+            <p><strong>Sales & Orders:</strong> <a href="tel:+94771234567">+94 77 123 4567</a></p>
+            <p><strong>Emergency Support:</strong> <a href="tel:+94771234568">+94 77 123 4568</a></p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-header">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3>Email Us</h3>
+            </div>
+            <p><strong>General:</strong> <a href="mailto:info@newarumed.com">info@newarumed.com</a></p>
+            <p><strong>Sales:</strong> <a href="mailto:sales@newarumed.com">sales@newarumed.com</a></p>
+            <p><strong>Support:</strong> <a href="mailto:support@newarumed.com">support@newarumed.com</a></p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-header">
+              <div class="info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <h3>Business Hours</h3>
+            </div>
+            <div class="business-hours">
+              <p><span>Monday - Friday:</span> <span>8:30 AM - 5:00 PM</span></p>
+              <p><span>Saturday:</span> <span>9:00 AM - 1:00 PM</span></p>
+              <p><span>Sunday:</span> <span>Closed</span></p>
+              <p><span>Emergency:</span> <span>24/7 Available</span></p>
+            </div>
+          </div>
+
+          <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.945958702112!2d79.842973!3d6.927067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25925b17b6fbf%3A0x9b7f8e6a8f5e5c0!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h2>Send Us a Message</h2>
+          <p>Fill out the form below and our team will get back to you within 24 hours.</p>
+          <form id="contactForm">
+            <div class="form-group">
+              <input type="text" placeholder="Full Name *" required>
+            </div>
+            <div class="form-group">
+              <input type="email" placeholder="Email Address *" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" placeholder="Phone Number">
+            </div>
+            <div class="form-group">
+              <select>
+                <option value="">Select Inquiry Type</option>
+                <option value="general">General Inquiry</option>
+                <option value="product">Product Information</option>
+                <option value="order">Order & Purchase</option>
+                <option value="support">Technical Support</option>
+                <option value="career">Career Opportunity</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Your Message *" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Send Message <i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">Quick answers to common questions about our products and services</p>
+      <div class="faq-grid">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What areas do you serve in Sri Lanka?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>We serve all major cities across Sri Lanka including Colombo, Kandy, Galle, Jaffna, and Negombo, with reliable delivery services nationwide.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do you offer bulk order discounts?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we offer special pricing for hospitals, clinics, and bulk purchases. Please contact our sales team for a customized quote.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Are your products certified?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>All our products meet international quality standards and are certified by relevant health authorities including ISO, CE, and FDA where applicable.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do you provide product training?</h3>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! We offer comprehensive training for healthcare professionals on proper usage of our medical equipment and products.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>New Arumed</h4>
+          <p>Your trusted pharmaceutical partner in Sri Lanka, committed to concentric growth and healthcare excellence since 2004.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="products.html">Our Products</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Gallery</a>
+          <a href="#">Careers</a>
+          <a href="#">Blogs</a>
+          <a href="#">News & Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</p>
+          <p><i class="fas fa-phone"></i> +94 11 2 345 678</p>
+          <p><i class="fas fa-envelope"></i> info@newarumed.com</p>
+          <p><i class="fas fa-clock"></i> Mon-Fri: 8:30 AM - 5:00 PM</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2006 - 2025 New Arumed (Pvt) Ltd. All rights reserved. | Designed for Healthcare Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form submission handler
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for contacting New Arumed! Our team will respond to your inquiry within 24 hours.');
+      this.reset();
+    });
+
+    // FAQ Accordion
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const question = item.querySelector('.faq-question');
+      question.addEventListener('click', () => {
+        item.classList.toggle('active');
+      });
+    });
+
+    // Mobile Menu Functionality
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const closeMenu = document.getElementById('closeMenu');
+
+    function openMenu() {
+      navOverlay.classList.add('active');
+      menuBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenuFunction() {
+      navOverlay.classList.remove('active');
+      menuBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunction);
+    menuBackdrop.addEventListener('click', closeMenuFunction);
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navOverlay.classList.contains('active')) {
+        closeMenuFunction();
+      }
+    });
+
+    // Update active state based on current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a, .nav-links-mobile a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+
+</html>

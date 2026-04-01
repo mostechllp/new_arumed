@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Arumed | About Us - Our Journey & Values</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F6F4EF;
+      color: #19140B;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    :root {
+      --primary-dark: #19140B;
+      --primary-red: #AD443B;
+      --primary-red-light: #BC8E80;
+      --blue-dark: #536792;
+      --blue-medium: #5488BE;
+      --blue-light: #64A4DF;
+      --gray-dark: #4D4846;
+      --gray-medium: #8D8F8E;
+      --gray-light: #B2B3AA;
+      --warm-taupe: #A5795B;
+      --warm-beige: #B6AF96;
+      --warm-pink: #CDB2B3;
+      --cream: #DBC6AE;
+      --bg-light: #F6F4EF;
+      --bg-mint: #E0F7F2;
+      --white: #FFFFFF;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .logo {
+      flex-shrink: 0;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--blue-medium) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .logo p {
+      font-size: 0.7rem;
+      color: var(--primary-red);
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+
+    /* Desktop Navigation */
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Hamburger Menu Button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--primary-red);
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.3s ease;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .menu-toggle:hover {
+      background: var(--bg-light);
+      transform: scale(1.05);
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--gray-dark);
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 1rem;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary-red);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-red);
+    }
+
+    /* Mobile Navigation Overlay */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--white);
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+      z-index: 1002;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 80px 30px 40px;
+      overflow-y: auto;
+    }
+
+    .nav-overlay.active {
+      right: 0;
+    }
+
+    .nav-overlay .nav-links-mobile {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .nav-overlay .nav-links-mobile li {
+      opacity: 0;
+      transform: translateX(30px);
+      animation: slideIn 0.4s ease forwards;
+    }
+
+    .nav-overlay .nav-links-mobile li:nth-child(1) { animation-delay: 0.05s; }
+    .nav-overlay .nav-links-mobile li:nth-child(2) { animation-delay: 0.1s; }
+    .nav-overlay .nav-links-mobile li:nth-child(3) { animation-delay: 0.15s; }
+    .nav-overlay .nav-links-mobile li:nth-child(4) { animation-delay: 0.2s; }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .nav-overlay .nav-links-mobile a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+      transition: all 0.3s ease;
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-overlay .nav-links-mobile a:hover,
+    .nav-overlay .nav-links-mobile a.active {
+      color: var(--primary-red);
+      padding-left: 15px;
+    }
+
+    /* Close Button */
+    .close-menu {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--gray-dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-menu:hover {
+      background: var(--bg-light);
+      color: var(--primary-red);
+      transform: rotate(90deg);
+    }
+
+    /* Backdrop */
+    .menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1001;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .menu-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(135deg, var(--bg-mint) 0%, var(--bg-light) 100%);
+      padding: 80px 0 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(100, 164, 223, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: var(--gray-medium);
+      max-width: 600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* About Content */
+    .about-section {
+      padding: 80px 0;
+    }
+
+    .about-grid {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+    }
+
+    .about-content {
+      flex: 1;
+      animation: fadeInLeft 0.8s ease;
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .about-content h2 {
+      font-size: 2rem;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .about-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary-red);
+    }
+
+    .about-content p {
+      color: var(--gray-medium);
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .about-image {
+      flex: 1;
+      animation: fadeInRight 0.8s ease;
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .about-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Mission Vision Section */
+    .mission-vision {
+      background: var(--white);
+      padding: 80px 0;
+    }
+
+    .mv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+    }
+
+    .mv-card {
+      background: var(--bg-light);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .mv-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .mv-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--bg-mint) 0%, var(--bg-light) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+    }
+
+    .mv-icon i {
+      font-size: 2.5rem;
+      color: var(--primary-red);
+    }
+
+    .mv-card h3 {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 15px;
+    }
+
+    .mv-card p {
+      color: var(--gray-medium);
+      line-height: 1.7;
+    }
+
+    /* General Manager Section */
+    .gm-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+
+    .gm-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .gm-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .gm-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--blue-dark) 100%);
+      padding: 30px;
+      color: white;
+    }
+
+    .gm-header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .gm-header p {
+      opacity: 0.9;
+      font-size: 1rem;
+    }
+
+    .gm-content {
+      padding: 30px;
+    }
+
+    .gm-experience {
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 2px solid var(--bg-light);
+    }
+
+    .gm-experience h3 {
+      color: var(--primary-red);
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+
+    .gm-experience p {
+      color: var(--gray-dark);
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .training-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .training-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      background: var(--bg-light);
+      border-radius: 10px;
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+    }
+
+    .training-list li i {
+      color: var(--primary-red);
+      font-size: 1rem;
+    }
+
+    /* Suppliers & Customers Section */
+    .partners-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .partners-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 40px;
+    }
+
+    .partner-card {
+      background: var(--bg-light);
+      border-radius: 20px;
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .partner-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--primary-red);
+    }
+
+    .partner-header i {
+      font-size: 2rem;
+      color: var(--primary-red);
+    }
+
+    .partner-header h3 {
+      font-size: 1.5rem;
+      color: var(--primary-dark);
+    }
+
+    .supplier-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      list-style: none;
+    }
+
+    .supplier-list li {
+      padding: 10px 15px;
+      background: var(--white);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      color: var(--gray-dark);
+    }
+
+    .supplier-list li i {
+      color: var(--primary-red);
+      font-size: 0.8rem;
+    }
+
+    .customer-info {
+      margin-top: 15px;
+    }
+
+    .customer-info p {
+      margin-bottom: 15px;
+      line-height: 1.7;
+      color: var(--gray-medium);
+    }
+
+    .criteria-list {
+      list-style: none;
+      margin-top: 15px;
+    }
+
+    .criteria-list li {
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--gray-dark);
+    }
+
+    .criteria-list li i {
+      color: var(--primary-red);
+    }
+
+    /* CDDA Section */
+    .cdda-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--bg-mint) 0%, var(--bg-light) 100%);
+    }
+
+    .cdda-card {
+      background: var(--white);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .cdda-header {
+      background: var(--primary-red);
+      padding: 30px;
+      color: white;
+    }
+
+    .cdda-header h2 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .cdda-header p {
+      opacity: 0.95;
+    }
+
+    .cdda-content {
+      padding: 35px;
+    }
+
+    .cdda-content p {
+      margin-bottom: 25px;
+      color: var(--gray-dark);
+      line-height: 1.8;
+    }
+
+    .requirements-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .requirements-list li {
+      padding: 12px 18px;
+      background: var(--bg-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      color: var(--gray-dark);
+      transition: all 0.3s ease;
+    }
+
+    .requirements-list li:hover {
+      background: var(--bg-mint);
+      transform: translateX(5px);
+    }
+
+    .requirements-list li i {
+      color: var(--primary-red);
+      font-size: 1.1rem;
+    }
+
+    /* Values Section */
+    .values-section {
+      padding: 80px 0;
+      background: var(--white);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--gray-medium);
+      max-width: 700px;
+      margin: 0 auto 60px;
+      font-size: 1.1rem;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .value-item {
+      text-align: center;
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .value-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--bg-mint);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .value-icon i {
+      font-size: 2rem;
+      color: var(--primary-red);
+    }
+
+    .value-item h3 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    .value-item p {
+      color: var(--gray-medium);
+      font-size: 0.9rem;
+    }
+
+    /* Team Section */
+    .team-section {
+      padding: 80px 0;
+      background: var(--bg-light);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .team-image {
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .team-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .team-card:hover .team-image img {
+      transform: scale(1.1);
+    }
+
+    .team-info {
+      padding: 25px;
+    }
+
+    .team-info h3 {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin-bottom: 5px;
+    }
+
+    .team-info p {
+      color: var(--primary-red);
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+
+    .team-info .bio {
+      color: var(--gray-medium);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: var(--gray-light);
+      padding: 60px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: var(--gray-light);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--primary-red);
+      transform: translateX(5px);
+    }
+
+    .footer-col .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .footer-col .social-links a {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 35px;
+    }
+
+    .footer-col .social-links a:hover {
+      background: var(--primary-red);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+      .about-grid {
+        flex-direction: column;
+      }
+      .partners-grid {
+        grid-template-columns: 1fr;
+      }
+      .requirements-list {
+        grid-template-columns: 1fr;
+      }
+      .training-list {
+        grid-template-columns: 1fr;
+      }
+      .gm-header h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <h1>New Arumed</h1>
+          <p>PHARMACEUTICAL EXCELLENCE</p>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" class="active">About Us</a></li>
+          <li><a href="products.html">Our Products</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay">
+    <button class="close-menu" id="closeMenu">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul class="nav-links-mobile">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="products.html">Our Products</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>About New Arumed</h1>
+      <p>Rooted in Sri Lanka, driven by a vision for better healthcare since 2004</p>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2>Our Heritage</h2>
+          <p>New Arumed (Pvt) Ltd was established in 2004 as an associate company of the renowned Arumed Group. Formed by a team of healthcare trade experts, our mission has always been to provide unparalleled service to healthcare professionals across Sri Lanka.</p>
+          <p>With over two decades of experience, we have grown into a trusted name in the pharmaceutical industry, known for our commitment to quality, innovation, and customer-centric approach.</p>
+          <p>Our key strategy — <strong>concentric diversification</strong> — allows us to expand our expertise methodically, offering a wider spectrum of medical products while maintaining deep specialization in each category.</p>
+        </div>
+        <div class="about-image">
+          <img src="https://images.pexels.com/photos/263210/pexels-photo-263210.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pharmaceutical Laboratory">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission-vision">
+    <div class="container">
+      <div class="mv-grid">
+        <div class="mv-card">
+          <div class="mv-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h3>Our Mission</h3>
+          <p>To deliver exceptional value through quality pharmaceutical products and services, empowering healthcare professionals with the tools and knowledge they need to provide the best patient care.</p>
+        </div>
+        <div class="mv-card">
+          <div class="mv-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3>Our Vision</h3>
+          <p>To be Sri Lanka's most trusted pharmaceutical partner, setting new standards in concentric diversification and innovative healthcare solutions.</p>
+        </div>
+        <div class="mv-card">
+          <div class="mv-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Our Values</h3>
+          <p>Integrity, innovation, customer-centricity, and continuous learning form the foundation of everything we do at New Arumed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gm-section">
+    <div class="container">
+      <div class="gm-card">
+        <div class="gm-header">
+          <h2>Mailvaganam Muthuvel</h2>
+          <p>General Manager</p>
+        </div>
+        <div class="gm-content">
+          <div class="gm-experience">
+            <h3><i class="fas fa-chart-line"></i> Experience</h3>
+            <p>55 years of experience in the health sector, bringing unparalleled expertise and leadership to New Arumed.</p>
+          </div>
+          <div class="gm-experience">
+            <h3><i class="fas fa-graduation-cap"></i> International Training</h3>
+            <ul class="training-list">
+              <li><i class="fas fa-check-circle"></i> Chas Thackray's Ltd - UK</li>
+              <li><i class="fas fa-check-circle"></i> Seton's Group of Companies Ltd - UK</li>
+              <li><i class="fas fa-check-circle"></i> Otsuka Pharmaceutical Ltd - Japan</li>
+              <li><i class="fas fa-check-circle"></i> Terumo Corporation - Singapore</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners-section">
+    <div class="container">
+      <div class="partners-grid">
+        <div class="partner-card">
+          <div class="partner-header">
+            <i class="fas fa-truck"></i>
+            <h3>Key Suppliers</h3>
+          </div>
+          <ul class="supplier-list">
+            <li><i class="fas fa-check-circle"></i> Sumi - Poland</li>
+            <li><i class="fas fa-check-circle"></i> Casharim - Israel</li>
+            <li><i class="fas fa-check-circle"></i> Singmed Healthcare - Singapore</li>
+            <li><i class="fas fa-check-circle"></i> Epi Healthcare - Singapore</li>
+            <li><i class="fas fa-check-circle"></i> Intermedicals System - India</li>
+            <li><i class="fas fa-check-circle"></i> Sunbow - China</li>
+          </ul>
+        </div>
+
+        <div class="partner-card">
+          <div class="partner-header">
+            <i class="fas fa-building"></i>
+            <h3>Key Customers</h3>
+          </div>
+          <div class="customer-info">
+            <h4 style="color: var(--primary-red); margin-bottom: 15px;">State Pharmaceuticals Corporation (SPC)</h4>
+            <p>SPC is a semi-government organization, functioning as a sole agent for procuring healthcare requirements for the Ministry of Health, Sri Lanka. Procurement is done through global and local tenders.</p>
+            <h4 style="color: var(--primary-red); margin: 20px 0 12px;">Criteria for Supplier Selection:</h4>
+            <ul class="criteria-list">
+              <li><i class="fas fa-check-circle"></i> Product registration in CDDA</li>
+              <li><i class="fas fa-check-circle"></i> Price evaluation based on quality</li>
+              <li><i class="fas fa-check-circle"></i> Bid and performance bonds</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="partner-card" style="margin-top: 40px;">
+        <div class="partner-header">
+          <i class="fas fa-hospital"></i>
+          <h3>Medical Supplies Division (MSD)</h3>
+        </div>
+        <div class="customer-info">
+          <p>MSD supports the government's free healthcare policy by gathering and estimating hospital requirements for tenders, making specifications, evaluating samples, and distributing stocked healthcare products to institutions across Sri Lanka.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cdda-section">
+    <div class="container">
+      <div class="cdda-card">
+        <div class="cdda-header">
+          <h2>Cosmetic Drugs and Devices Authority</h2>
+          <p>Regulatory Body of the Ministry of Health, Sri Lanka</p>
+        </div>
+        <div class="cdda-content">
+          <p>CDDA is the regulatory body of the Ministry of Health, where all healthcare products must be registered prior to importing into Sri Lanka. Product registration can be carried out by an authorized marketing agent of any manufacturer, exporter, or local producer.</p>
+          <h3 style="color: var(--primary-red); margin-bottom: 20px;">Required Documentation for Registration:</h3>
+          <ul class="requirements-list">
+            <li><i class="fas fa-file-alt"></i> Documents and samples</li>
+            <li><i class="fas fa-box"></i> Product sample with original packing, label, and manuals</li>
+            <li><i class="fas fa-certificate"></i> Free sale certificate</li>
+            <li><i class="fas fa-envelope"></i> Authorization letter</li>
+            <li><i class="fas fa-globe"></i> List of countries indicating the particular product exported and registered</li>
+            <li><i class="fas fa-check-shield"></i> Manufacturing country local health authority approval</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values-section">
+    <div class="container">
+      <h2 class="section-title">Core Values</h2>
+      <p class="section-subtitle">The principles that guide our daily operations and long-term vision</p>
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>Integrity</h3>
+          <p>Uncompromising honesty and transparency in all our dealings</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>Innovation</h3>
+          <p>Embracing new technologies and methodologies to serve better</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3>Customer Focus</h3>
+          <p>Putting healthcare professionals and patients at the center</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Continuous Learning</h3>
+          <p>Regular training to stay ahead of market changes</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Excellence</h3>
+          <p>Striving for the highest quality in every product and service</p>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Sustainability</h3>
+          <p>Commitment to environmentally responsible practices</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>New Arumed</h4>
+          <p>Your trusted pharmaceutical partner in Sri Lanka, committed to concentric growth and healthcare excellence since 2004.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="products.html">Our Products</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Gallery</a>
+          <a href="#">Careers</a>
+          <a href="#">Blogs</a>
+          <a href="#">News & Events</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</p>
+          <p><i class="fas fa-phone"></i> +94 11 2 345 678</p>
+          <p><i class="fas fa-envelope"></i> info@newarumed.com</p>
+          <p><i class="fas fa-clock"></i> Mon-Fri: 8:30 AM - 5:00 PM</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2006 - 2025 New Arumed (Pvt) Ltd. All rights reserved. | Designed for Healthcare Excellence</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const closeMenu = document.getElementById('closeMenu');
+
+    function openMenu() {
+      navOverlay.classList.add('active');
+      menuBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenuFunction() {
+      navOverlay.classList.remove('active');
+      menuBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunction);
+    menuBackdrop.addEventListener('click', closeMenuFunction);
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navOverlay.classList.contains('active')) {
+        closeMenuFunction();
+      }
+    });
+
+    const currentPage = window.location.pathname.split('/').pop() || 'about.html';
+    document.querySelectorAll('.nav-links a, .nav-links-mobile a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+
+</html>

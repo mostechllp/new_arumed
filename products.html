@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Arumed | Our Products - Comprehensive Medical Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #F6F4EF;
+      color: #19140B;
+      line-height: 1.6;
+    }
+
+    :root {
+      --primary-dark: #19140B;
+      --primary-red: #AD443B;
+      --primary-red-light: #BC8E80;
+      --blue-dark: #536792;
+      --blue-medium: #5488BE;
+      --blue-light: #64A4DF;
+      --gray-dark: #4D4846;
+      --gray-medium: #8D8F8E;
+      --gray-light: #B2B3AA;
+      --bg-light: #F6F4EF;
+      --bg-mint: #E0F7F2;
+      --white: #FFFFFF;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Header */
+    header {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .logo {
+      flex-shrink: 0;
+    }
+
+    .logo h1 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--blue-medium) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+
+    .logo p {
+      font-size: 0.7rem;
+      color: var(--primary-red);
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+
+    /* Desktop Navigation */
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Hamburger Menu Button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--primary-red);
+      cursor: pointer;
+      z-index: 1001;
+      transition: all 0.3s ease;
+      padding: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+    }
+
+    .menu-toggle:hover {
+      background: var(--bg-light);
+      transform: scale(1.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo h1 {
+        font-size: 1.4rem;
+      }
+
+      .logo p {
+        font-size: 0.65rem;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--gray-dark);
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 1rem;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--primary-red);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary-red);
+    }
+
+    /* Hamburger Menu Button */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: var(--primary-red);
+      cursor: pointer;
+      z-index: 1001;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    /* Mobile Navigation Overlay */
+    .nav-overlay {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--white);
+      box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+      z-index: 1002;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      padding: 80px 30px 40px;
+      overflow-y: auto;
+    }
+
+    .nav-overlay.active {
+      right: 0;
+    }
+
+    .nav-overlay .nav-links-mobile {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .nav-overlay .nav-links-mobile li {
+      opacity: 0;
+      transform: translateX(30px);
+      animation: slideIn 0.4s ease forwards;
+    }
+
+    .nav-overlay .nav-links-mobile li:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .nav-overlay .nav-links-mobile li:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .nav-overlay .nav-links-mobile li:nth-child(3) {
+      animation-delay: 0.15s;
+    }
+
+    .nav-overlay .nav-links-mobile li:nth-child(4) {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .nav-overlay .nav-links-mobile a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--gray-dark);
+      transition: all 0.3s ease;
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-overlay .nav-links-mobile a:hover,
+    .nav-overlay .nav-links-mobile a.active {
+      color: var(--primary-red);
+      padding-left: 15px;
+    }
+
+    /* Close Button */
+    .close-menu {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--gray-dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-menu:hover {
+      background: var(--bg-light);
+      color: var(--primary-red);
+      transform: rotate(90deg);
+    }
+
+    /* Backdrop */
+    .menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1001;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .menu-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Page Title */
+    .page-title {
+      background: linear-gradient(135deg, var(--bg-mint) 0%, var(--bg-light) 100%);
+      padding: 60px 0 50px;
+      text-align: center;
+    }
+
+    .page-title h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .page-title p {
+      font-size: 1rem;
+      color: var(--gray-medium);
+      max-width: 550px;
+      margin: 0 auto;
+    }
+
+    /* Search & Filter Section */
+    .search-filter {
+      background: var(--white);
+      padding: 30px 0;
+      border-bottom: 1px solid #E5E7EB;
+    }
+
+    .search-filter-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 14px 45px 14px 20px;
+      border: 2px solid #E5E7EB;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      background: var(--white);
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary-red);
+      box-shadow: 0 0 0 3px rgba(173, 68, 59, 0.1);
+    }
+
+    .search-box i {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gray-medium);
+    }
+
+    .category-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .category-tab {
+      padding: 10px 24px;
+      background: var(--bg-light);
+      border: 1px solid #E5E7EB;
+      border-radius: 40px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gray-dark);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .category-tab:hover {
+      background: var(--primary-red);
+      color: white;
+      border-color: var(--primary-red);
+      transform: translateY(-2px);
+    }
+
+    .category-tab.active {
+      background: var(--primary-red);
+      color: white;
+      border-color: var(--primary-red);
+    }
+
+    /* Products Section */
+    .products-main {
+      padding: 50px 0 80px;
+      background: var(--bg-light);
+    }
+
+    /* Category Block */
+    .category-block {
+      margin-bottom: 60px;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--primary-red);
+    }
+
+    .category-header i {
+      font-size: 1.8rem;
+      color: var(--primary-red);
+    }
+
+    .category-header h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+
+    .category-header span {
+      background: var(--primary-red);
+      color: white;
+      font-size: 0.8rem;
+      padding: 2px 10px;
+      border-radius: 30px;
+      margin-left: 10px;
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .product-item {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 20px;
+      transition: all 0.3s ease;
+      border: 1px solid #E5E7EB;
+      cursor: pointer;
+    }
+
+    .product-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary-red-light);
+    }
+
+    .product-icon-sm {
+      width: 48px;
+      height: 48px;
+      background: var(--bg-mint);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .product-icon-sm i {
+      font-size: 1.5rem;
+      color: var(--primary-red);
+    }
+
+    .product-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .product-category-badge {
+      font-size: 0.7rem;
+      color: var(--primary-red);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .product-link-icon {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      color: var(--primary-red);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: gap 0.3s ease;
+    }
+
+    .product-link-icon:hover {
+      gap: 10px;
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--white);
+      border-radius: 20px;
+    }
+
+    .no-results i {
+      font-size: 3rem;
+      color: var(--gray-light);
+      margin-bottom: 20px;
+    }
+
+    .no-results h3 {
+      font-size: 1.3rem;
+      color: var(--gray-dark);
+      margin-bottom: 8px;
+    }
+
+    .no-results p {
+      color: var(--gray-medium);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--blue-dark) 100%);
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .cta-section h2 {
+      color: white;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-section p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 25px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-cta {
+      background: white;
+      color: var(--primary-dark);
+      padding: 12px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-dark);
+      color: var(--gray-light);
+      padding: 50px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 18px;
+      font-weight: 600;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: var(--gray-light);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+      font-size: 0.85rem;
+    }
+
+    .footer-col a:hover {
+      color: var(--primary-red);
+      transform: translateX(5px);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-links a:hover {
+      background: var(--primary-red);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 20px;
+      }
+
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .page-title h1 {
+        font-size: 2rem;
+      }
+
+      .search-filter-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-box {
+        max-width: 100%;
+      }
+
+      .category-tabs {
+        justify-content: center;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .category-header h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <h1>New Arumed</h1>
+          <p>PHARMACEUTICAL EXCELLENCE</p>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="products.html" class="active">Our Products</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <!-- Hamburger Menu Button (only visible on mobile) -->
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="nav-overlay" id="navOverlay">
+    <button class="close-menu" id="closeMenu">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul class="nav-links-mobile">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="products.html" class="active">Our Products</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Backdrop -->
+  <div class="menu-backdrop" id="menuBackdrop"></div>
+
+  <section class="page-title">
+    <div class="container">
+      <h1>Our Products</h1>
+      <p>Comprehensive range of high-quality medical supplies and pharmaceutical products</p>
+    </div>
+  </section>
+
+  <section class="search-filter">
+    <div class="container">
+      <div class="search-filter-wrapper">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search products...">
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="category-tabs" id="categoryTabs">
+          <button class="category-tab active" data-category="all">All Products</button>
+          <button class="category-tab" data-category="disposables">Disposables</button>
+          <button class="category-tab" data-category="heart-devices">Heart Devices</button>
+          <button class="category-tab" data-category="sutures">Sutures</button>
+          <button class="category-tab" data-category="instruments">Instruments</button>
+          <button class="category-tab" data-category="sundries">Sundries</button>
+          <button class="category-tab" data-category="pharma">Pharmaceuticals</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products-main">
+    <div class="container" id="productsContainer"></div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Need Assistance?</h2>
+      <p>Contact our team for product inquiries, bulk orders, or custom solutions</p>
+      <a href="contact.html" class="btn-cta">Contact Us →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>New Arumed</h4>
+          <p>Trusted pharmaceutical partner in Sri Lanka since 2004.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="products.html">Our Products</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Gallery</a>
+          <a href="#">Careers</a>
+          <a href="#">Blogs</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</p>
+          <p><i class="fas fa-phone"></i> +94 11 2 345 678</p>
+          <p><i class="fas fa-envelope"></i> info@newarumed.com</p>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2006 - 2025 New Arumed (Pvt) Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const productData = {
+      disposables: {
+        name: "General Medical Disposables",
+        icon: "fas fa-syringe",
+        products: [
+          "I.V. Cannula", "Three way stop Cock", "Endotracheal Tube", "A V Fistula Needle",
+          "Foley's Catheter", "Respiro Meter", "Central Venous Triple Lumen Catheter",
+          "Double Lumen Catheter", "Guidal Airway", "Suction Catheter", "Nelation Catheter",
+          "Urine Collecting Bags", "Chest Drainage Bottle", "Thoracic Catheter", "Ryles Tubes",
+          "Disposable Syringes", "Disposable Needles"
+        ]
+      },
+      heart_devices: {
+        name: "Special Heart Closure Devices",
+        icon: "fas fa-heartbeat",
+        products: ["ASD Occluders", "VSD Occluders", "PDA Occluders"]
+      },
+      sutures: {
+        name: "Suture Materials",
+        icon: "fas fa-procedures",
+        products: ["PGA Sutures", "Polypropline Sutures", "Silk Sutures", "Nylon Sutures", "Skin Staplers"]
+      },
+      instruments: {
+        name: "Medical Instruments & Equipment",
+        icon: "fas fa-stethoscope",
+        products: [
+          "Scissors", "Forceps", "Stethoscopes", "Blood Pressure Meter", "Thermometers",
+          "Suction Apparatus", "Nebulizers", "Sterilizer & Autoclave", "Baby Scale",
+          "Bathroom Scale", "Infra-Red Lamp", "Syringe Pump", "Infusion Pump",
+          "E.C.G Machine", "Ultra Sound Scanner"
+        ]
+      },
+      sundries: {
+        name: "Surgical Sundries",
+        icon: "fas fa-band-aid",
+        products: [
+          "Bandages", "Crepe Bandages", "Cotton Wool", "Gauze", "Face Masks",
+          "Surgeons & Nurse Caps", "Examination Gloves - Sterile", "Surgical Gloves – Sterile",
+          "Hot Water Bag", "E.C.G. Papers", "E.C.G. Electrodes", "E.C.G. Gel"
+        ]
+      },
+      pharma: {
+        name: "Pharmaceuticals",
+        icon: "fas fa-capsules",
+        products: [
+          "Oncology Drugs", "Cardiovascular Drugs", "Gastroenterology Drugs",
+          "Ophthalmology Drugs", "Vaccines & Serums"
+        ]
+      }
+    };
+
+    let activeCategory = "all";
+    let searchQuery = "";
+
+    function renderProducts() {
+      const container = document.getElementById("productsContainer");
+      let hasResults = false;
+      let html = "";
+
+      for (const [catKey, catData] of Object.entries(productData)) {
+        if (activeCategory !== "all" && activeCategory !== catKey) continue;
+
+        let filteredProducts = [...catData.products];
+        if (searchQuery) {
+          filteredProducts = filteredProducts.filter(p =>
+            p.toLowerCase().includes(searchQuery.toLowerCase())
+          );
+        }
+
+        if (filteredProducts.length === 0) continue;
+        hasResults = true;
+
+        html += `
+        <div class="category-block">
+          <div class="category-header">
+            <i class="${catData.icon}"></i>
+            <h2>${catData.name}</h2>
+            <span>${filteredProducts.length}</span>
+          </div>
+          <div class="products-grid">
+      `;
+
+        filteredProducts.forEach(product => {
+          html += `
+          <div class="product-item">
+            <div class="product-icon-sm">
+              <i class="${catData.icon}"></i>
+            </div>
+            <span class="product-category-badge">${catData.name}</span>
+            <h3>${product}</h3>
+            <a href="contact.html" class="product-link-icon">
+              Request Details <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        `;
+        });
+
+        html += `</div></div>`;
+      }
+
+      if (!hasResults) {
+        html = `
+        <div class="no-results">
+          <i class="fas fa-search"></i>
+          <h3>No products found</h3>
+          <p>Try searching with a different keyword or browse all categories</p>
+        </div>
+      `;
+      }
+
+      container.innerHTML = html;
+    }
+
+    // Category click handlers
+    document.querySelectorAll(".category-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".category-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        activeCategory = tab.dataset.category;
+        renderProducts();
+      });
+    });
+
+    // Search handler
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      renderProducts();
+    });
+
+    renderProducts();
+
+    // Mobile Menu Functionality
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+    const closeMenu = document.getElementById('closeMenu');
+
+    function openMenu() {
+      navOverlay.classList.add('active');
+      menuBackdrop.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenuFunction() {
+      navOverlay.classList.remove('active');
+      menuBackdrop.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunction);
+    menuBackdrop.addEventListener('click', closeMenuFunction);
+
+    // Close menu on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && navOverlay.classList.contains('active')) {
+        closeMenuFunction();
+      }
+    });
+
+    // Update active state based on current page
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-links a, .nav-links-mobile a').forEach(link => {
+      if (link.getAttribute('href') === currentPage) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    })
+  </script>
+  </script>
+</body>
+
+</html>
